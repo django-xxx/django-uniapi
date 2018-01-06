@@ -20,7 +20,7 @@ setup(
 
     packages=['django_uniapi'],
     py_modules=[],
-    install_requires=['TimeConvert', 'django-json-response'],
+    install_requires=['TimeConvert', 'django-response'],
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',

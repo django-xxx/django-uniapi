@@ -1,14 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from json_response import JsonResponse
+from django_response import response
 from TimeConvert import TimeConvert as tc
-
-
-def response(status_code=200, data={}):
-    return JsonResponse({
-        'status': status_code,
-        'data': data,
-    }, safe=False)
 
 
 def server_status(request):
