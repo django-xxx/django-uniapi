@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf import settings
+from django.contrib.admin.views.decorators import staff_member_required
 from django_response import response
 from TimeConvert import TimeConvert as tc
 
@@ -22,6 +23,7 @@ def raise_error(request):
     return response()
 
 
+@staff_member_required
 def set_cookie(request):
     cookie_key = request.GET.get('k', '')
     cookie_value = request.GET.get('v', '')
