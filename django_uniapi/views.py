@@ -41,6 +41,17 @@ def set_cookie(request):
             'httponly': True,
         })
     else:
-        response.set_cookie(cookie_key, cookie_value, max_age=max_age)
+        resp.set_cookie(cookie_key, cookie_value, max_age=max_age)
+
+    return resp
+
+
+@staff_member_required
+def del_cookie(request):
+    cookie_key = request.GET.get('k', '')
+
+    resp = response()
+
+    resp.delete_cookie(cookie_key)
 
     return resp
