@@ -28,7 +28,7 @@ def set_cookie(request):
     cookie_key = request.GET.get('k', '')
     cookie_value = request.GET.get('v', '')
 
-    signed_cookie = bool(request.GET.get('s', 1))
+    signed_cookie = bool(int(request.GET.get('s', 1)))
 
     max_age = hasattr(settings, 'DJANGO_WE_COOKIE_MAX_AGE') and getattr(settings, 'DJANGO_WE_COOKIE_MAX_AGE') or 30 * 24 * 60 * 60  # 30d
     cookie_salt = hasattr(settings, 'DJANGO_WE_COOKIE_SALT') and getattr(settings, 'DJANGO_WE_COOKIE_SALT') or 'djwe'  # Salt for ``set_signed_cookie``
