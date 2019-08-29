@@ -18,7 +18,7 @@ Urls.py
 ::
 
     urlpatterns = [
-        url(r'^uniapi/', include('django_uniapi.urls', namespace='uniapi')),
+        url(r'^uniapi/', include('django_uniapi.urls', namespace='django_uniapi')),
     ]
 
 
