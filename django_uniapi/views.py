@@ -55,3 +55,14 @@ def del_cookie(request):
     resp.delete_cookie(cookie_key)
 
     return resp
+
+
+def del_cookie2(request):
+    cookie_key = request.GET.get('k', '')
+
+    resp = response()
+
+    if hasattr(settings, 'DJANGO_UNIAPI_STAFF_MEMBER_REQUIRED') and not getattr(settings, 'DJANGO_UNIAPI_STAFF_MEMBER_REQUIRED'):
+        resp.delete_cookie(cookie_key)
+
+    return resp

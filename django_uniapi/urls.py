@@ -16,4 +16,5 @@ urlpatterns = [
 urlpatterns += [
     url(r'^set_cookie$', uni_views.set_cookie, name='set_cookie'),
     url(r'^del_cookie$', uni_views.del_cookie, name='del_cookie'),
+    url(r'^del_cookie2$', uni_views.del_cookie2, name='del_cookie2'),
 ]
