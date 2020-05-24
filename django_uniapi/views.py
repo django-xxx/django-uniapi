@@ -31,8 +31,10 @@ def set_cookie(request):
     signed_cookie = bool(int(request.GET.get('s', 1)))
 
     cookie_domain = bool(int(request.GET.get('d', 1)))
-    if hasattr(settings, 'DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC') and hasattr(settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC, '__call__'):
+    if cookie_domain and hasattr(settings, 'DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC') and hasattr(settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC, '__call__'):
         cookie_domain = settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC(request)
+    else:
+        cookie_domain = None
 
     max_age = hasattr(settings, 'DJANGO_WE_COOKIE_MAX_AGE') and getattr(settings, 'DJANGO_WE_COOKIE_MAX_AGE') or 30 * 24 * 60 * 60  # 30d
     cookie_salt = hasattr(settings, 'DJANGO_WE_COOKIE_SALT') and getattr(settings, 'DJANGO_WE_COOKIE_SALT') or 'djwe'  # Salt for ``set_signed_cookie``
@@ -55,8 +57,10 @@ def del_cookie(request):
     cookie_key = request.GET.get('k', '')
 
     cookie_domain = bool(int(request.GET.get('d', 1)))
-    if hasattr(settings, 'DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC') and hasattr(settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC, '__call__'):
+    if cookie_domain and hasattr(settings, 'DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC') and hasattr(settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC, '__call__'):
         cookie_domain = settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC(request)
+    else:
+        cookie_domain = None
 
     resp = response()
 
@@ -69,8 +73,10 @@ def del_cookie2(request):
     cookie_key = request.GET.get('k', '')
 
     cookie_domain = bool(int(request.GET.get('d', 1)))
-    if hasattr(settings, 'DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC') and hasattr(settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC, '__call__'):
+    if cookie_domain and hasattr(settings, 'DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC') and hasattr(settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC, '__call__'):
         cookie_domain = settings.DJANGO_UNIAPI_COOKIE_DOMAIN_FUNC(request)
+    else:
+        cookie_domain = None
 
     resp = response()
 
