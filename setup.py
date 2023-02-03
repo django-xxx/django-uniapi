@@ -11,7 +11,8 @@ setup(
     version=version,
     keywords='django-uniapi',
     description='Django General/Universal API',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
 
     url='https://github.com/django-xxx/django-uniapi',
 
@@ -20,7 +21,7 @@ setup(
 
     packages=['django_uniapi'],
     py_modules=[],
-    install_requires=['TimeConvert', 'django-response'],
+    install_requires=['TimeConvert', 'django-response', 'django-six'],
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
